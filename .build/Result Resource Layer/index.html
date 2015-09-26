@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width,user-scalable=no"/>
+	<title>Gym Partner</title>
+	<link rel="stylesheet"  href="lib/tau/themes/default/tau.css">
+	<!-- load theme file for your application -->
+	<link rel="stylesheet"  href="css/style.css">
+</head>
+<body onload="startUp()">
+	<div class="ui-page ui-page-active" id="main" style="background-image: url(images/weights.jpg);">
+		
+		<div class="ui-content content-padding">
+		  <script type='text/javascript'>
+(function()
+{
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem( 'firstLoad' ) )
+    {
+      localStorage[ 'firstLoad' ] = true;
+      window.location.reload();
+    }  
+    else
+      localStorage.removeItem( 'firstLoad' );
+  }
+})();
+</script>
+<div id="header-logo">
+<img src='images/gym-buddy.png' width="80px;">
+GYM PARTNER
+</div>
+			<div id="tips">
+		
+			"<i>Being defeated is often a temporary condition. Giving up is what makes it permanent.</i>"
+			</div>
+			<ul class="ui-listview">
+				
+				<a id="begin1" href="setup/step0.html"><button type="button" class="ui-btn ui-color-green" id="begin">Getting Started</button></a>
+							<a href="start/start1.html"><button type="button" class="ui-btn ui-color-green" id="begin">Getting Started</button></a>
+			
+			</ul>
+		</div>
+	</div>
+	
+</body>
+<script type="text/javascript" src="lib/tau/js/tau.min.js"></script>
+<script src="js/app.js"></script>
+<script type="text/javascript" src="setup/popup.js"></script>
+<script src="js/lowBatteryCheck.js"></script>
+</html>

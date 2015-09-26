@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta name="viewport" content="width=device-width,  user-scalable=no"/>
+        <title>Gym Buddy - Schedule</title>
+        <link rel="stylesheet"  href="../lib/tau/themes/default/tau.css">
+        <link rel="stylesheet"  href="../css/style.css">
+</head>
+<body onload='initExercises()'>
+		  <script type='text/javascript'>
+(function()
+{
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem( 'firstLoad' ) )
+    {
+      localStorage[ 'firstLoad' ] = true;
+      window.location.reload();
+    }  
+    else
+      localStorage.removeItem( 'firstLoad' );
+  }
+})();
+</script>
+              <div class="ui-page" style="background-image: url(../images/weights.jpg);">
+  
+                <header class="ui-header">
+                        <h2 class="ui-title ui-icon" style="background-image: url(../images/gym-buddy.png);">Schedule</h2>
+                </header>
+                <br>
+                <div class="ui-content content-padding" >
+                      	<a href="step1.html" class="ui-btn ui-color-green" style='background-color:#3498db;'>New Schedule</a>
+                      	<br>
+                     
+                </div>
+        </div>
+</body>
+<script type="text/javascript" src="../lib/tau/js/tau.js"></script>
+</html>

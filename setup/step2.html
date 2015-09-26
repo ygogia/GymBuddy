@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta name="viewport" content="width=device-width,  user-scalable=no"/>
+        <title>Gym Buddy - Select Exercises</title>
+        <link rel="stylesheet"  href="../lib/tau/themes/default/tau.css">
+        <link rel="stylesheet"  href="../css/style.css">
+        <script type="text/javascript" src="../lib/tau/js/tau.js"></script>
+         <script type="text/javascript" src="../js/app.js"></script>
+        <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+        <style>
+        		#small
+        		{
+        			
+        			font-size: 20px;
+white-space: normal;
+line-height: 2.2rem;
+min-height: 4rem;
+        		}
+        </style>
+</head>
+<body onload='enableMuscle()'>
+              <div class="ui-page">
+                            <script type='text/javascript'>
+
+(function()
+{
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem( 'firstLoad' ) )
+    {
+      localStorage[ 'firstLoad' ] = true;
+      window.location.reload();
+    }  
+    else
+      localStorage.removeItem( 'firstLoad' );
+  }
+})();
+
+</script>
+                <header class="ui-header">
+                        <h2 class="ui-title ui-icon" style="background-image: url(../images/gym-buddy.png);">Create Schedule</h2>
+                </header>
+                <div class="ui-content">
+                        <ul class="ui-listview">
+                                <li class="li-has-next-depth disabled" id='Neck'  onclick="updateWorkout('Neck');">
+                                    <a href="#checkPopup-Neck"  data-rel="popup">
+                            				Neck
+                                    </a>
+                                </li>
+                                <li class="li-has-next-depth disabled"  id='Traps' onclick="updateWorkout('Traps');">
+                                    <a href="#checkPopup-Traps"  data-rel="popup">
+                            				Traps
+                                    </a>
+                                </li>
+                                <li class="li-has-next-depth disabled"   id='Shoulders'  onclick="updateWorkout('Shoulders');">
+                                    <a href="#checkPopup-Shoulders"  data-rel="popup">
+                            				Shoulders
+                                    </a>
+                                </li>
+                                <li class="li-has-next-depth disabled"    id='Chest' onclick="updateWorkout('Chest');">
+                                    <a href="#checkPopup-Chest"  data-rel="popup">
+                            				Chest
+                                    </a>
+                                </li>
+                                <li class="li-has-next-depth disabled"    id='Biceps' onclick="updateWorkout('Biceps');">
+                                    <a href="#checkPopup-Biceps"  data-rel="popup">
+                            				Biceps
+                                    </a>
+                                </li>
+                                <li class="li-has-next-depth disabled"   id='Forearms'  onclick="updateWorkout('Forearms');">
+                                    <a href="#checkPopup-Forearms"  data-rel="popup">
+                            				Forearms
+                                    </a>
+                                </li>
+                                <li class="li-has-next-depth disabled"   id='Abs'  onclick="updateWorkout('Abs');">
+                                    <a href="#checkPopup-Abs"  data-rel="popup">
+                            				Abs
+                                    </a>
+                                </li>
+                                <li class="li-has-next-depth disabled"   id='Quads'  onclick="updateWorkout('Quads');">
+                                    <a href="#checkPopup-Quads"  data-rel="popup">
+                            				Quads
+                                    </a>
+                                </li>
+                                <li class="li-has-next-depth disabled"   id='Calves'  onclick="updateWorkout('Calves');">
+                                    <a href="#checkPopup-Calves"  data-rel="popup">
+                            				Calves
+                                    </a>
+                                </li>
+                                <li class="li-has-next-depth disabled"   id='Triceps'  onclick="updateWorkout('Triceps');">
+                                    <a href="#checkPopup-Triceps"  data-rel="popup">
+                            				Triceps
+                                    </a>
+                                </li>
+                                <li class="li-has-next-depth disabled"   id='Lats'  onclick="updateWorkout('Lats');">
+                                    <a href="#checkPopup-Lats"  data-rel="popup">
+                            				Lats
+                                    </a>
+                                </li>
+                                <li class="li-has-next-depth disabled"   id='MiddleBack'  onclick="updateWorkout('MiddleBack');">
+                                    <a href="#checkPopup-MiddleBack"  data-rel="popup">
+                            				Middle Back
+                                    </a>
+                                </li>
+                                <li class="li-has-next-depth disabled"   id='LowerBack'  onclick="updateWorkout('LowerBack');">
+                                    <a href="#checkPopup-LowerBack"  data-rel="popup">
+                            				Lower Back
+                                    </a>
+                                </li>
+                                <li class="li-has-next-depth disabled"  id='Glutes'   onclick="updateWorkout('Glutes');">
+                                    <a href="#checkPopup-Glutes"  data-rel="popup">
+                            				Glutes
+                                    </a>
+                                </li>
+                                <li class="li-has-next-depth disabled"   id='Hamstrings'  onclick="updateWorkout('Hamstrings');">
+                                    <a href="#checkPopup-Hamstrings"  data-rel="popup">
+                            				Hamstrings
+                                    </a>
+                                </li>
+                        </ul>
+                        <button type="button" class="ui-btn ui-color-green"><a href='step3.html'>Done</a></button>
+                </div>
+           
+           
+           
+                <div id="checkPopup-Neck" class="ui-popup">
+		<div class="ui-popup-header">Neck Exercises</div>
+		<div class="ui-popup-content" style="height:243px; overflow-y:scroll;">
+			<ul class="ui-listview">
+				<li class="li-has-checkbox">
+					<label id='small'>
+						Lying Face Down Plate Neck Resistance
+						<input type="checkbox" value="neck01" id='neck01' onclick='updateMuscleGroup(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label id='small'>
+						Lying Face Up Plate Neck Resistance
+						<input type="checkbox" value="neck02" id='neck02' onclick='updateMuscleGroup(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label id='small'>		
+								Seated Head Harness Neck Resistance
+						<input type="checkbox" value="neck03" id='neck03' onclick='updateMuscleGroup(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label  id='small'>
+						Isometric Neck Exercise - Sides
+						<input type="checkbox" value="neck04" id='neck04' onclick='updateMuscleGroup(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label  id='small'>
+					Isometric Neck Exercise - Front And Back
+						<input type="checkbox" value="neck05" id='neck05' onclick='updateMuscleGroup(this);'>
+					</label>
+				</li>
+			</ul>
+
+		</div>
+		<div class="ui-popup-footer">
+			<button id="checkPopup-close" class="ui-btn" onclick="reload()">Done</button>
+		</div>
+		<script type="text/javascript" src="popup.js"></script>
+        </div>
+           
+         <div id="checkPopup-Traps" class="ui-popup">
+		<div class="ui-popup-header">Traps Exercises</div>
+		<div class="ui-popup-content" style="height:243px; overflow-y:scroll;">
+			<ul class="ui-listview">
+				<li class="li-has-checkbox">
+					<label  id='small'>
+						Smith Machine Shrug
+						<input type="checkbox" value="traps01" id='traps01' onclick='updateMuscleGroup(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label  id='small'>
+						Leverage Shrug
+						<input type="checkbox" value="traps02" id='traps02' onclick='updateMuscleGroup(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label  id='small'>
+						Kettlebell Sumo High Pull
+						<input type="checkbox" value="traps03" id='traps03' onclick='updateMuscleGroup(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label  id='small'>
+						Standing Dumbbell Upright Row
+						<input type="checkbox" value="traps04" id='traps04' onclick='updateMuscleGroup(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label  id='small'>
+						Calf-Machine Shoulder Shrug
+						<input type="checkbox" value="traps05" id='traps05' onclick='updateMuscleGroup(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label  id='small'>
+						Dumbbell Shrug
+						<input type="checkbox" value="traps06" id='traps06' onclick='updateMuscleGroup(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label  id='small'>
+						Barbell Shrug
+						<input type="checkbox" value="traps07" id='traps07' onclick='updateMuscleGroup(this);'>
+					</label>
+				</li>
+			</ul>
+
+		</div>
+		<div class="ui-popup-footer">
+			<button id="checkPopup-close" class="ui-btn" onclick="reload()">Done</button>
+		</div>
+		
+        </div>
+       
+                 <div id="checkPopup-Shoulders" class="ui-popup">
+		<div class="ui-popup-header">Shoulder Exercises</div>
+		<div class="ui-popup-content" style="height:243px; overflow-y:scroll;">
+			<ul class="ui-listview">
+				<li class="li-has-checkbox">
+					<label  id='small'>
+						Standing Alternating Dumbbell Press
+						<input type="checkbox" value="shoulders01" id='shoulders01' onclick='updateMuscleGroup(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label  id='small'>
+						Seated Barbell Press
+						<input type="checkbox" value="shoulders02" id='shoulders02' onclick='updateMuscleGroup(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label  id='small'>
+						Standing Military Press
+						<input type="checkbox" value="shoulders03" id='shoulders03' onclick='updateMuscleGroup(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label  id='small'>
+						
+Standing Dumbbell Press
+						<input type="checkbox" value="shoulders04" id='shoulders04' onclick='updateMuscleGroup(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label  id='small'>
+						Front Dumbbell Raise
+						<input type="checkbox" value="shoulders05" id='shoulders05' onclick='updateMuscleGroup(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label  id='small'>
+						Dumbbell Shoulder Press
+						<input type="checkbox" value="shoulders06" id='shoulders06' onclick='updateMuscleGroup(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label  id='small'>
+						
+Reverse Flyes
+						<input type="checkbox" value="shoulders07" id='shoulders07' onclick='updateMuscleGroup(this);'>
+					</label >
+				</li>
+				<li class="li-has-checkbox">
+					<label  id='small'>
+						
+Side Lateral Raise
+						<input type="checkbox" value="shoulders08" id='shoulders08' onclick='updateMuscleGroup(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label  id='small'>
+					Power Partials
+						<input type="checkbox" value="shoulders09" id='shoulders09' onclick='updateMuscleGroup(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label  id='small'>
+						Front Incline Dumbbell Raise
+						<input type="checkbox" value="shoulders10" id='shoulders10' onclick='updateMuscleGroup(this);'>
+					</label>
+				</li>
+			</ul>
+			
+
+		</div>
+		<div class="ui-popup-footer">
+			<button id="checkPopup-close" class="ui-btn" onclick="reload()">Done</button>
+		</div>
+		
+        </div>
+        
+            <div id="checkPopup-Chest" class="ui-popup">
+		<div class="ui-popup-header">Chest Exercises</div>
+		<div class="ui-popup-content" style="height:243px; overflow-y:scroll;">
+			<ul class="ui-listview">
+				<li class="li-has-checkbox">
+					<label  id='small'>
+						Lying Face Down Plate Neck Resistance
+						<input type="checkbox" value="chest01" id='chest01' onclick='updateMuscleGroup(this);'>
+					</label>
+				</li>
+			</ul>
+
+		</div>
+		<div class="ui-popup-footer">
+			<button id="checkPopup-close" class="ui-btn" onclick="reload()">Done</button>
+		</div>
+		<script type="text/javascript" src="popup.js"></script>
+        </div>
+           
+        
+       </div> 
+</body>
+</html>

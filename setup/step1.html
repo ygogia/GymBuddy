@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta name="viewport" content="width=device-width,  user-scalable=no"/>
+        <title>Gym Buddy - Create Schedule</title>
+        <link rel="stylesheet"  href="../lib/tau/themes/default/tau.css">
+        <link rel="stylesheet"  href="../css/style.css">
+        <script type="text/javascript" src="../lib/tau/js/tau.js"></script>
+         <script type="text/javascript" src="../js/app.js"></script>
+         	
+          <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+</head>
+<body onload='selectedExercises()'>
+
+              <div class="ui-page">
+              
+              <script type='text/javascript'>
+
+(function()
+{
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem( 'firstLoad' ) )
+    {
+      localStorage[ 'firstLoad' ] = true;
+      window.location.reload();
+    }  
+    else
+      localStorage.removeItem( 'firstLoad' );
+  }
+})();
+
+</script>
+                <header class="ui-header">
+                        <h2 class="ui-title ui-icon" style="background-image: url(../images/gym-buddy.png);">Create Schedule</h2>
+                </header>
+                <div class="ui-content">
+                  
+                        <ul class="ui-listview">
+                     
+                                <li class="li-has-multiline li-has-next-depth"  onclick="updateWeek('monday');">
+                                    <a href="#checkPopup"  data-rel="popup">
+                                        Monday
+                                        <span class="li-text-sub" id='monday-selected'>No Exercise Selected</span>
+                                    </a>
+                                </li>
+                                 <li class="li-has-multiline li-has-next-depth" onclick="updateWeek('tuesday');">
+                                    <a href="#checkPopup"  data-rel="popup">
+                                        Tuesday
+                                     <span class="li-text-sub" id='tuesday-selected'>No Exercise Selected</span>
+                                    </a>
+                                </li>
+                                 <li class="li-has-multiline li-has-next-depth" onclick="updateWeek('wednsday');">
+                                    <a href="#checkPopup"  data-rel="popup">
+                                        Wednsday
+                                       <span class="li-text-sub" id='wednsday-selected'>No Exercise Selected</span>
+                                    </a>
+                                </li>
+                                <li class="li-has-multiline li-has-next-depth" onclick="updateWeek('thursday');">
+                                    <a href="#checkPopup"  data-rel="popup">
+                                       Thursday
+                                       <span class="li-text-sub" id='thursday-selected'>No Exercise Selected</span>
+                                    </a>
+                                </li>
+                                  <li class="li-has-multiline li-has-next-depth" onclick="updateWeek('friday');">
+                                    <a href="#checkPopup"  data-rel="popup">
+                                       Friday
+                                       <span class="li-text-sub" id='friday-selected'>No Exercise Selected</span>
+                                    </a>
+                                </li>
+                                  <li class="li-has-multiline li-has-next-depth" onclick="updateWeek('saturday');">
+                                    <a href="#checkPopup"  data-rel="popup" >
+                                       Saturday
+                                       <span class="li-text-sub" id='saturday-selected'>No Exercise Selected</span>
+                                    </a>
+                                </li>
+                                  <li class="li-has-multiline li-has-next-depth" onclick="updateWeek('sunday');">
+                                    <a href="#checkPopup"  data-rel="popup" >
+                                       Sunday
+                                       <span class="li-text-sub" id='sunday-selected'>No Exercise Selected</span>
+                                    </a>
+                                </li>
+                        </ul>
+                 <a class="ui-btn ui-color-green"  href='step2.html' onclick="selectedMuscles();">Done</a>
+                </div>
+             
+                <div id="checkPopup" class="ui-popup">
+		<div class="ui-popup-header">Select Muscle</div>
+		<div class="ui-popup-content" style="height:243px; overflow-y:scroll;">
+			<ul class="ui-listview">
+				<li class="li-has-checkbox">
+					<label>
+						Neck
+						<input type="checkbox" value="Neck" id='Neck' onclick='updateExercise(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label>
+						Traps
+						<input type="checkbox"/ value="Traps" id='Traps' onclick='updateExercise(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label>
+						Shoulders
+						<input type="checkbox"/ value="Shoulders" id='Shoulders' onclick='updateExercise(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label>
+						Chest
+						<input type="checkbox"/ value="Chest" id='Chest' onclick='updateExercise(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label>
+						Biceps
+						<input type="checkbox"/ value="Biceps" id='Biceps' onclick='updateExercise(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label>
+						Forearms
+						<input type="checkbox"/ value="Forearms" id='Forearms' onclick='updateExercise(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label>
+						Abs
+						<input type="checkbox"/ value="Abs" id='Abs' onclick='updateExercise(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label>
+						Quads
+						<input type="checkbox"/ value="Quads" id='Quads' onclick='updateExercise(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label>
+						Calves
+						<input type="checkbox"/ value="Calves" id='Calves' onclick='updateExercise(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label>
+						Triceps
+						<input type="checkbox"/ value="Triceps" id='Triceps' onclick='updateExercise(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label>
+						Lats
+						<input type="checkbox"/ value="Lats" id='Lats' onclick='updateExercise(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label>
+						Middle Back
+						<input type="checkbox"/ value="MiddleBack" id='MiddleBack' onclick='updateExercise(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label>
+						Lower Back
+						<input type="checkbox"/ value="LowerBack" id='LowerBack' onclick='updateExercise(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label>
+						Glutes
+						<input type="checkbox"/ value="Glutes" id='Glutes' onclick='updateExercise(this);'>
+					</label>
+				</li>
+				<li class="li-has-checkbox">
+					<label>
+						Hamstrings
+						<input type="checkbox"/ value="Hamstrings" id='Hamstrings' onclick='updateExercise(this);'>
+					</label>
+				</li>
+				
+			</ul>
+
+		</div>
+		<div class="ui-popup-footer">
+			<button id="checkPopup-close" class="ui-btn">Done</button>
+		</div>
+	<script type="text/javascript" src="popup.js"></script>
+        </div>
+       </div> 
+</body>
+
+</html>

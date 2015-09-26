@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta name="viewport" content="width=device-width,  user-scalable=no"/>
+        <title>Gym Buddy - Create Schedule</title>
+        <link rel="stylesheet"  href="../lib/tau/themes/default/tau.css">
+        <link rel="stylesheet"  href="../css/style.css">
+        <script type="text/javascript" src="../lib/tau/js/tau.js"></script>
+         <script type="text/javascript" src="../js/app.js"></script>
+         	
+          <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+          <script src="../js/jquery.knob.js"></script>
+           <script>
+            $(function($) {
+
+                $(".knob").knob({
+                   
+                    cancel : function () {
+                        console.log("cancel : ", this);
+                    },
+                    /*format : function (value) {
+                        return value + '%';
+                    },*/
+                    draw : function () {
+
+                        // "tron" case
+                        if(this.$.data('skin') == 'tron') {
+
+                            this.cursorExt = 0.3;
+
+                            var a = this.arc(this.cv)  // Arc
+                                , pa                   // Previous arc
+                                , r = 1;
+
+                            this.g.lineWidth = this.lineWidth;
+
+                            if (this.o.displayPrevious) {
+                                pa = this.arc(this.v);
+                                this.g.beginPath();
+                                this.g.strokeStyle = this.pColor;
+                                this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, pa.s, pa.e, pa.d);
+                                this.g.stroke();
+                            }
+
+                            this.g.beginPath();
+                            this.g.strokeStyle = r ? this.o.fgColor : this.fgColor ;
+                            this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, a.s, a.e, a.d);
+                            this.g.stroke();
+
+                            this.g.lineWidth = 2;
+                            this.g.beginPath();
+                            this.g.strokeStyle = this.o.fgColor;
+                            this.g.arc( this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
+                            this.g.stroke();
+
+                            return false;
+                        }
+                    }
+                });
+            });
+        </script>
+          <style>
+          li a
+          {
+          	font-size:24px;
+          }
+          #popup-head
+          {
+          		min-height:2.6rem;
+          		background-color: #FFFFFF;
+				color: #000;
+				font-size:20px;
+          	}
+          </style>
+</head>
+<body onload="startCheck();">
+              <div class="ui-page">
+              <script type='text/javascript'>
+(function()
+{
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem( 'firstLoad' ) )
+    {
+      localStorage[ 'firstLoad' ] = true;
+      window.location.reload();
+    }  
+    else
+      localStorage.removeItem( 'firstLoad' );
+  }
+})();
+
+</script>
+                <header class="ui-header">
+                        <h2 class="ui-title ui-icon" id="start-header" style="background-image: url(../images/gym-buddy.png);">Warm Up</h2>
+                </header>
+                <div class="ui-content">
+                  
+                        <ul class="ui-listview">
+                     
+                                <li class=""  onclick="updateWeek('monday');">
+                                    <a href="#checkPopup"  data-rel="popup">
+                                        Treadmil <span id="grey">(5min)</span>                                       
+                                    </a>
+                                </li>
+                                 <li class="li-has-next-depth" onclick="updateWeek('tuesday');">
+                                    <a href="#checkPopup"  data-rel="popup">
+                                        Push Ups<span id="grey">(10min)</span>
+                                   
+                                    </a>
+                                </li>
+                                 <li class="li-has-next-depth" onclick="updateWeek('wednsday');">
+                                    <a href="#checkPopup"  data-rel="popup">
+                                        Pull Ups<span id="grey">(5min)</span>
+                                     
+                                    </a>
+                                </li>
+                              
+                        </ul>
+                
+                </div>
+                    <footer class="ui-footer ui-grid-col-2" style="height:3.66666rem;">
+		<a href="#" class="ui-btn ui-color-green" id="noBorder" style="background:#e74c3c;">PREV.</a>
+		<a href="#" class="ui-btn ui-color-green" id="noBorder" style="background:#e74c3c;">NEXT</a>
+	</footer>
+             
+                <div id="checkPopup" class="ui-popup" >
+		<div class="ui-popup-header" id="popup-head"><marquee behavior="scroll" scrollamount="3" direction="left">Push Ups (5min)</marquee></div>
+		<div class="ui-popup-content" style="height:243px; overflow-y:scroll;">
+			<script>
+        function clock() {
+			 d = new Date();
+			  var a = d.getSeconds() - 3;
+            var $s = $(".second"),
+                $m = $(".minute"),
+                $h = $(".hour");
+                d = new Date(),
+                s = d.getSeconds(),
+                m = d.getMinutes(),
+                h = d.getHours();
+		
+			$s.val(m).trigger("change");
+            $m.val(s).trigger("change");
+            $h.val(h).trigger("change");
+            setTimeout("clock()", 1000);
+        }
+		clock();
+        </script>
+        <div class="demo" style="color:#EEE;background:#222;height:120px;width:100%">
+      
+            <div style="position:relative;width:180px;margin:auto">
+                <div style="position:absolute;left:10px;top:10px">
+                    <input class="knob hour" data-min="0" data-max="24" data-bgColor="#333" data-fgColor="#f1c40f" data-displayInput=false data-width="180" data-height="180" data-thickness=".05">
+                </div>
+                <div style="position:absolute;left:20px;top:20px">
+                    <input class="knob minute" data-min="0" data-max="60" data-bgColor="#333"  data-fgColor="#3498db" data-displayInput=true data-width="160" data-height="160" data-thickness=".50">
+                </div>
+            </div>
+        </div>
+
+		</div>
+		<div class="ui-popup-footer ui-grid-col-2" style="height:3.46666rem; font-size:20px;">
+		<a href="#" class="ui-btn ui-color-green" id="noBorder" style="background:#e74c3c;font-size: 1.5rem;">DONE</a>
+		<a href="#" class="ui-btn ui-color-green" id="noBorder" style="background:#e74c3c;font-size: 1.5rem;">START</a>
+	  </div> 
+</body>
+
+</html>
